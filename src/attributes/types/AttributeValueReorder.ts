@@ -9,15 +9,9 @@ import { ReorderInput, AttributeErrorCode } from "./../../types/globalTypes";
 // GraphQL mutation operation: AttributeValueReorder
 // ====================================================
 
-export interface AttributeValueReorder_attributeReorderValues_attribute_values {
-  __typename: "AttributeValue";
-  id: string;
-}
-
 export interface AttributeValueReorder_attributeReorderValues_attribute {
   __typename: "Attribute";
   id: string;
-  values: (AttributeValueReorder_attributeReorderValues_attribute_values | null)[] | null;
 }
 
 export interface AttributeValueReorder_attributeReorderValues_errors {

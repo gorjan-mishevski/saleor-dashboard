@@ -21,22 +21,6 @@ export interface AttributeCreate_attributeCreate_attribute_privateMetadata {
   value: string;
 }
 
-export interface AttributeCreate_attributeCreate_attribute_values_file {
-  __typename: "File";
-  url: string;
-  contentType: string | null;
-}
-
-export interface AttributeCreate_attributeCreate_attribute_values {
-  __typename: "AttributeValue";
-  id: string;
-  name: string | null;
-  slug: string | null;
-  file: AttributeCreate_attributeCreate_attribute_values_file | null;
-  reference: string | null;
-  richText: any | null;
-}
-
 export interface AttributeCreate_attributeCreate_attribute {
   __typename: "Attribute";
   id: string;
@@ -54,7 +38,6 @@ export interface AttributeCreate_attributeCreate_attribute {
   entityType: AttributeEntityTypeEnum | null;
   storefrontSearchPosition: number;
   valueRequired: boolean;
-  values: (AttributeCreate_attributeCreate_attribute_values | null)[] | null;
 }
 
 export interface AttributeCreate_attributeCreate_errors {

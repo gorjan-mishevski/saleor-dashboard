@@ -167,9 +167,9 @@ const attributeValueReorderMutation = gql`
     attributeReorderValues(attributeId: $id, moves: [$move]) {
       attribute {
         id
-        values {
-          id
-        }
+        # values {
+        #   id
+        # }
       }
       errors {
         ...AttributeErrorFragment

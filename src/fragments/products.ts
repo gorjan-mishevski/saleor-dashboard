@@ -1,6 +1,9 @@
 import gql from "graphql-tag";
 
-import { attributeValueFragment } from "./attributes";
+import {
+  attributeValueFragment,
+  attributeValueListFragment
+} from "./attributes";
 import { metadataFragment } from "./metadata";
 import { taxTypeFragment } from "./taxes";
 import { weightFragment } from "./weight";
@@ -117,6 +120,7 @@ export const productFragment = gql`
 export const productVariantAttributesFragment = gql`
   ${priceRangeFragment}
   ${attributeValueFragment}
+  ${attributeValueListFragment}
   fragment ProductVariantAttributesFragment on Product {
     id
     attributes {
@@ -128,8 +132,13 @@ export const productVariantAttributesFragment = gql`
         entityType
         valueRequired
         unit
-        values {
-          ...AttributeValueFragment
+        values(
+          first: $firstValues
+          after: $afterValues
+          last: $lastValues
+          before: $beforeValues
+        ) {
+          ...AttributeValueListFragment
         }
       }
       values {
@@ -141,8 +150,13 @@ export const productVariantAttributesFragment = gql`
       variantAttributes(variantSelection: VARIANT_SELECTION) {
         id
         name
-        values {
-          ...AttributeValueFragment
+        values(
+          first: $firstValues
+          after: $afterValues
+          last: $lastValues
+          before: $beforeValues
+        ) {
+          ...AttributeValueListFragment
         }
       }
     }
@@ -241,8 +255,13 @@ export const variantAttributeFragment = gql`
     entityType
     valueRequired
     unit
-    values {
-      ...AttributeValueFragment
+    values(
+      first: $firstValues
+      after: $afterValues
+      last: $lastValues
+      before: $beforeValues
+    ) {
+      ...AttributeValueListFragment
     }
   }
 `;

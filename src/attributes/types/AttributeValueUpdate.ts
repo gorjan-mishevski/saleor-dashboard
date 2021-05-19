@@ -21,22 +21,6 @@ export interface AttributeValueUpdate_attributeValueUpdate_attribute_privateMeta
   value: string;
 }
 
-export interface AttributeValueUpdate_attributeValueUpdate_attribute_values_file {
-  __typename: "File";
-  url: string;
-  contentType: string | null;
-}
-
-export interface AttributeValueUpdate_attributeValueUpdate_attribute_values {
-  __typename: "AttributeValue";
-  id: string;
-  name: string | null;
-  slug: string | null;
-  file: AttributeValueUpdate_attributeValueUpdate_attribute_values_file | null;
-  reference: string | null;
-  richText: any | null;
-}
-
 export interface AttributeValueUpdate_attributeValueUpdate_attribute {
   __typename: "Attribute";
   id: string;
@@ -54,7 +38,6 @@ export interface AttributeValueUpdate_attributeValueUpdate_attribute {
   entityType: AttributeEntityTypeEnum | null;
   storefrontSearchPosition: number;
   valueRequired: boolean;
-  values: (AttributeValueUpdate_attributeValueUpdate_attribute_values | null)[] | null;
 }
 
 export interface AttributeValueUpdate_attributeValueUpdate_errors {
